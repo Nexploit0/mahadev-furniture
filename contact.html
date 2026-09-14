@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Mahadev Furniture</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .contact-page-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 40px;
+  }
+  .map-frame {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    aspect-ratio: 4/3;
+  }
+  .map-frame iframe { width: 100%; height: 100%; border: 0; }
+  .location-detail {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+  .location-detail svg { width: 20px; height: 20px; stroke: var(--blue-deep); flex-shrink: 0; margin-top: 3px; }
+  .location-detail strong { display: block; color: var(--navy); font-size: 0.95rem; }
+  .location-detail span { font-size: 0.9rem; color: var(--text-soft); }
+
+  @media (max-width: 780px) { .contact-page-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="Mahadev Furniture logo">
+      <span class="brand-text">Mahadev Furniture<span>CRAFTED WITH CARE</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="store.html">Store</a>
+      <a href="tenders.html">Tenders</a>
+      <a href="works.html">Our Works</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<div class="page-hero wrap">
+  <div class="kicker">CONTACT</div>
+  <h1>Let's talk about your furniture needs</h1>
+  <p>Reach out for an order, a quote, or a tender — we usually respond within a day.</p>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="contact-page-grid">
+      <form class="contact-form">
+        <div class="row-2">
+          <div class="field">
+            <label for="c-name">Full name</label>
+            <input type="text" id="c-name" placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="c-phone">Phone number</label>
+            <input type="tel" id="c-phone" placeholder="+91 00000 00000">
+          </div>
+        </div>
+        <div class="field">
+          <label for="c-email">Email</label>
+          <input type="email" id="c-email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="c-reason">I'm reaching out about</label>
+          <select id="c-reason">
+            <option>Buying furniture</option>
+            <option>A tender / bulk contract</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="c-message">Message</label>
+          <textarea id="c-message" placeholder="Tell us what you need..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send message</button>
+      </form>
+
+      <div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps?q=Patna,Bihar&output=embed" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div class="location-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><strong>Workshop &amp; Showroom</strong><span>Patna, Bihar</span></div>
+        </div>
+        <div class="location-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          <div><strong>Call us</strong><span>Add phone number here</span></div>
+        </div>
+        <div class="location-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <div><strong>Email us</strong><span>Add email address here</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="grain-divider"></div>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Mahadev Furniture logo">
+      <div>
+        <h3>Mahadev Furniture</h3>
+        <p>Handcrafted furniture and dependable contract work, built by people who know wood.</p>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="store.html">Store</a>
+      <a href="tenders.html">Tenders</a>
+      <a href="works.html">Our Works</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Patna, Bihar</p>
+      <p>Add phone number</p>
+      <p>Add email address</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mahadev Furniture. All rights reserved.</div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

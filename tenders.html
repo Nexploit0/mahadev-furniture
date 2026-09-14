@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenders — Mahadev Furniture</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-top: 40px;
+  }
+  .process-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 26px 22px;
+  }
+  .process-num {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: var(--blue-deep);
+    margin-bottom: 12px;
+  }
+  .process-card h3 { font-size: 1.02rem; margin-bottom: 8px; }
+  .process-card p { font-size: 0.88rem; }
+
+  .tender-open-list { margin-top: 40px; display: flex; flex-direction: column; gap: 16px; }
+  .tender-item {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .tender-item h3 { font-size: 1.04rem; margin-bottom: 6px; }
+  .tender-meta { font-size: 0.86rem; color: var(--text-soft); }
+  .tender-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--wood-deep);
+    background: var(--panel);
+    padding: 5px 12px;
+    border-radius: 999px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .form-panel {
+    background: var(--panel);
+    border-radius: 24px;
+    padding: 48px;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .form-panel h2 { margin-bottom: 12px; }
+  .form-panel p { margin-top: 0; }
+  .form-panel .contact-form input,
+  .form-panel .contact-form select,
+  .form-panel .contact-form textarea { background: var(--white); }
+
+  @media (max-width: 900px) {
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .form-panel { grid-template-columns: 1fr; padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="Mahadev Furniture logo">
+      <span class="brand-text">Mahadev Furniture<span>CRAFTED WITH CARE</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="store.html">Store</a>
+      <a href="tenders.html" class="active">Tenders</a>
+      <a href="works.html">Our Works</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<div class="page-hero wrap">
+  <div class="kicker">TENDERS &amp; CONTRACT WORK</div>
+  <h1>Give us a contract for your furniture needs</h1>
+  <p>We take on bulk orders and tenders for builders, schools, offices, hostels, and government projects — from custom manufacturing to full on-site fit-outs.</p>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>How a tender works with us</h2>
+        <p>A simple, direct process — no middlemen, no delays.</p>
+      </div>
+    </div>
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-num">1</div>
+        <h3>Share requirements</h3>
+        <p>Send us your tender document, quantity, and specifications through the form below or by phone.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">2</div>
+        <h3>Site visit &amp; quote</h3>
+        <p>We assess the scope, visit the site if needed, and share a detailed quotation.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">3</div>
+        <h3>Agreement &amp; timeline</h3>
+        <p>Once approved, we finalise the contract, materials, and delivery schedule.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">4</div>
+        <h3>Manufacture &amp; deliver</h3>
+        <p>Furniture is built in our workshop and delivered or installed on-site.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Who we work with</h2>
+        <p>Examples of the kind of contract work we regularly take on.</p>
+      </div>
+    </div>
+    <div class="tender-open-list">
+      <div class="tender-item">
+        <div>
+          <span class="tender-tag">INSTITUTIONAL</span>
+          <h3>Schools &amp; colleges</h3>
+          <div class="tender-meta">Classroom furniture, benches, staff room fit-outs.</div>
+        </div>
+      </div>
+      <div class="tender-item">
+        <div>
+          <span class="tender-tag">CORPORATE</span>
+          <h3>Offices &amp; co-working spaces</h3>
+          <div class="tender-meta">Workstations, cabins, storage units, reception furniture.</div>
+        </div>
+      </div>
+      <div class="tender-item">
+        <div>
+          <span class="tender-tag">RESIDENTIAL</span>
+          <h3>Builders &amp; housing projects</h3>
+          <div class="tender-meta">Bulk modular furniture for flats and residential complexes.</div>
+        </div>
+      </div>
+      <div class="tender-item">
+        <div>
+          <span class="tender-tag">GOVERNMENT</span>
+          <h3>Government &amp; PSU tenders</h3>
+          <div class="tender-meta">Furniture supply for offices, hostels, and public buildings.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="form-panel">
+      <div>
+        <h2>Ready to discuss your tender?</h2>
+        <p>Fill in the form and we'll get back to you with next steps — or call us directly using the details on our contact page.</p>
+      </div>
+      <form class="contact-form">
+        <div class="row-2">
+          <div class="field">
+            <label for="t-name">Full name</label>
+            <input type="text" id="t-name" placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="t-org">Organisation</label>
+            <input type="text" id="t-org" placeholder="Company / institution name">
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="t-phone">Phone number</label>
+            <input type="tel" id="t-phone" placeholder="+91 00000 00000">
+          </div>
+          <div class="field">
+            <label for="t-email">Email</label>
+            <input type="email" id="t-email" placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="field">
+          <label for="t-scope">Tender / project details</label>
+          <textarea id="t-scope" placeholder="Quantity, furniture type, timeline, location..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit tender request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="grain-divider"></div>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Mahadev Furniture logo">
+      <div>
+        <h3>Mahadev Furniture</h3>
+        <p>Handcrafted furniture and dependable contract work, built by people who know wood.</p>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="store.html">Store</a>
+      <a href="tenders.html">Tenders</a>
+      <a href="works.html">Our Works</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Patna, Bihar</p>
+      <p>Add phone number</p>
+      <p>Add email address</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mahadev Furniture. All rights reserved.</div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

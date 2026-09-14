@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahadev Furniture — Handcrafted Furniture &amp; Contract Work</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 64px 0 0;
+    overflow: hidden;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+    padding-bottom: 56px;
+  }
+  .hero-copy .kicker {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--wood-deep);
+    margin-bottom: 14px;
+    letter-spacing: 0.01em;
+  }
+  .hero-copy p { margin-top: 18px; font-size: 1.1rem; }
+
+  .hero-art {
+    position: relative;
+    aspect-ratio: 1/1;
+    border-radius: 24px;
+    background: linear-gradient(160deg, var(--blue) 0%, var(--blue-deep) 55%, var(--navy) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-art svg { width: 72%; height: 72%; }
+  .hero-art::after {
+    content: "";
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    right: -10%;
+    height: 40%;
+    background: repeating-linear-gradient(115deg, rgba(255,255,255,0.06) 0 3px, transparent 3px 22px);
+  }
+
+  /* CTA choice panels */
+  .choice-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-bottom: 88px;
+  }
+  .choice-panel {
+    border-radius: 20px;
+    padding: 38px 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 220px;
+    justify-content: space-between;
+  }
+  .choice-panel.store {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .choice-panel.tenders {
+    background: var(--panel);
+    border: 1.5px solid var(--line);
+  }
+  .choice-panel h3 { font-size: 1.5rem; }
+  .choice-panel.store h3 { color: var(--white); }
+  .choice-panel.tenders h3 { color: var(--navy); }
+  .choice-panel p { max-width: 42ch; }
+  .choice-panel.store p { color: rgba(255,255,255,0.72); }
+  .choice-panel.tenders p { color: var(--text-soft); }
+  .choice-tag {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--wood);
+  }
+  .choice-panel.tenders .choice-tag { color: var(--wood-deep); }
+
+  @media (max-width: 780px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-art { max-width: 340px; margin: 0 auto; }
+    .choice-panels { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Category grid ---------- */
+  .section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .section-head p { margin-top: 10px; }
+
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .cat-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    cursor: pointer;
+  }
+  .cat-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-3px);
+  }
+  .cat-image {
+    aspect-ratio: 4/3;
+    background: var(--panel);
+  }
+  .cat-body { padding: 18px 20px 22px; }
+  .cat-card h3 { font-size: 1.03rem; }
+  .cat-card span { font-size: 0.86rem; color: var(--text-soft); display: block; margin-top: 4px; }
+
+  .view-all-wrap { text-align: center; margin-top: 44px; }
+
+  @media (max-width: 900px) {
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---------- Owner section ---------- */
+  .owner-section { background: var(--panel); }
+  .owner-inner {
+    display: grid;
+    grid-template-columns: 0.75fr 1.25fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .owner-photo {
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 3/3.6;
+    background: var(--white);
+    border: 1px solid var(--line);
+  }
+  .owner-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .owner-copy .kicker {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--wood-deep);
+    margin-bottom: 10px;
+  }
+  .owner-copy h2 { margin-bottom: 6px; }
+  .owner-role {
+    font-size: 1rem;
+    color: var(--blue-deep);
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .owner-copy p { margin-top: 16px; font-size: 1.02rem; max-width: 56ch; }
+  .owner-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+  }
+  .owner-stat strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--navy);
+  }
+  .owner-stat span { font-size: 0.86rem; color: var(--text-soft); }
+
+  @media (max-width: 780px) {
+    .owner-inner { grid-template-columns: 1fr; }
+    .owner-photo { max-width: 320px; margin: 0 auto; }
+  }
+
+  /* ---------- Tender CTA band ---------- */
+  .tender-band {
+    background: var(--navy);
+    border-radius: 24px;
+    padding: 52px 48px;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .tender-band h2 { color: var(--white); }
+  .tender-band p { color: rgba(255,255,255,0.7); margin-top: 14px; }
+  .tender-band .btn-wood { align-self: start; justify-self: start; }
+
+  @media (max-width: 700px) {
+    .tender-band { grid-template-columns: 1fr; text-align: left; padding: 40px 28px; }
+  }
+
+  /* ---------- Contact + map ---------- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .contact-form label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy-soft);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .field { display: flex; flex-direction: column; }
+  .contact-form input, .contact-form select, .contact-form textarea {
+    font-family: var(--sans);
+    font-size: 0.98rem;
+    padding: 13px 14px;
+    border-radius: 10px;
+    border: 1.5px solid var(--line);
+    background: var(--white);
+    color: var(--text);
+  }
+  .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+  }
+  .contact-form textarea { resize: vertical; min-height: 110px; }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .location-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .map-frame {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    aspect-ratio: 4/3;
+  }
+  .map-frame iframe { width: 100%; height: 100%; border: 0; }
+  .location-detail {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .location-detail svg { width: 20px; height: 20px; stroke: var(--blue-deep); flex-shrink: 0; margin-top: 3px; }
+  .location-detail strong { display: block; color: var(--navy); font-size: 0.95rem; }
+  .location-detail span { font-size: 0.9rem; color: var(--text-soft); }
+
+  @media (max-width: 780px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .row-2 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="Mahadev Furniture logo">
+      <span class="brand-text">Mahadev Furniture<span>CRAFTED WITH CARE</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="store.html">Store</a>
+      <a href="tenders.html">Tenders</a>
+      <a href="works.html">Our Works</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <div class="kicker">MAHADEV FURNITURE</div>
+      <h1>Furniture built to live in your home for years.</h1>
+      <p>From ready-made pieces for your living room to full contract work for builders and institutions — we design, build, and deliver furniture that lasts.</p>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="90" width="120" height="14" rx="4" fill="white" fill-opacity="0.92"/>
+        <rect x="50" y="104" width="14" height="46" fill="white" fill-opacity="0.8"/>
+        <rect x="136" y="104" width="14" height="46" fill="white" fill-opacity="0.8"/>
+        <rect x="55" y="60" width="90" height="34" rx="6" fill="white" fill-opacity="0.95"/>
+        <rect x="65" y="68" width="24" height="18" rx="3" fill="#3E5FD9"/>
+        <rect x="111" y="68" width="24" height="18" rx="3" fill="#3E5FD9"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="wrap choice-panels">
+    <a href="store.html" class="choice-panel store">
+      <div>
+        <div class="choice-tag">READY-MADE FURNITURE</div>
+        <h3>Buy from our store</h3>
+        <p>Browse beds, chairs, sofas, wardrobes and more — pick what fits your home.</p>
+      </div>
+      <span class="btn btn-wood">Go to store &nbsp;→</span>
+    </a>
+    <a href="tenders.html" class="choice-panel tenders">
+      <div>
+        <div class="choice-tag">FOR BUILDERS &amp; INSTITUTIONS</div>
+        <h3>Give a contract for work</h3>
+        <p>Have a bulk order, project, or tender? Get in touch and we'll quote it for you.</p>
+      </div>
+      <span class="btn btn-primary">View tenders &nbsp;→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ CATEGORY GRID ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>What people usually buy</h2>
+        <p>A quick look at our most popular categories — the full catalogue is in the store.</p>
+      </div>
+    </div>
+
+    <div class="cat-grid">
+      <a href="store.html" class="cat-card">
+        <div class="cat-image"></div>
+        <div class="cat-body">
+          <h3>Sheesham Double Bed</h3>
+          <span>Solid wood, with storage</span>
+        </div>
+      </a>
+      <a href="store.html" class="cat-card">
+        <div class="cat-image"></div>
+        <div class="cat-body">
+          <h3>Dining Chair Set of 4</h3>
+          <span>Cushioned, teak wood frame</span>
+        </div>
+      </a>
+      <a href="store.html" class="cat-card">
+        <div class="cat-image"></div>
+        <div class="cat-body">
+          <h3>3-Seater Fabric Sofa</h3>
+          <span>Foam cushioning, removable cover</span>
+        </div>
+      </a>
+      <a href="store.html" class="cat-card">
+        <div class="cat-image"></div>
+        <div class="cat-body">
+          <h3>3-Door Wardrobe</h3>
+          <span>Mirror panel, hanging space</span>
+        </div>
+      </a>
+      <a href="store.html" class="cat-card">
+        <div class="cat-image"></div>
+        <div class="cat-body">
+          <h3>Study Table with Shelf</h3>
+          <span>Compact, attached bookshelf</span>
+        </div>
+      </a>
+      <a href="store.html" class="cat-card">
+        <div class="cat-image"></div>
+        <div class="cat-body">
+          <h3>6-Seater Dining Set</h3>
+          <span>Solid wood table &amp; chairs</span>
+        </div>
+      </a>
+      <a href="store.html" class="cat-card">
+        <div class="cat-image"></div>
+        <div class="cat-body">
+          <h3>Wall-Mounted TV Unit</h3>
+          <span>Floating design, closed storage</span>
+        </div>
+      </a>
+      <a href="store.html" class="cat-card">
+        <div class="cat-image"></div>
+        <div class="cat-body">
+          <h3>Rocking Chair</h3>
+          <span>Handcrafted, cane seating</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="view-all-wrap">
+      <a href="store.html" class="btn btn-outline">View all products →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OWNER SECTION ============ -->
+<section class="owner-section">
+  <div class="wrap owner-inner">
+    <div class="owner-photo">
+      <img src="owner.png" alt="Satabir Sharma, owner of Mahadev Furniture">
+    </div>
+    <div class="owner-copy">
+      <div class="kicker">MEET THE OWNER</div>
+      <h2>Satabir Sharma</h2>
+      <span class="owner-role">Founder &amp; Owner, Mahadev Furniture</span>
+      <p>Satabir Sharma has spent over 15 years in the furniture business, working directly with wood, craftsmen, and clients to understand exactly what a home or a project needs. What started as small custom orders has grown into a trusted name that both households and institutions rely on for quality furniture and dependable contract work.</p>
+      <p>His approach is simple — no shortcuts on material, honest timelines, and furniture that's built to actually be used, not just look good on day one.</p>
+      <div class="owner-stats">
+        <div class="owner-stat"><strong>15+</strong><span>Years of experience</span></div>
+        <div class="owner-stat"><strong>500+</strong><span>Pieces delivered</span></div>
+        <div class="owner-stat"><strong>50+</strong><span>Contract projects</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TENDER CTA ============ -->
+<section>
+  <div class="wrap">
+    <div class="tender-band">
+      <div>
+        <h2>Have a tender or bulk project?</h2>
+        <p>Contact us directly to discuss requirements, timelines, and pricing for institutional and bulk furniture contracts.</p>
+      </div>
+      <a href="tenders.html" class="btn btn-wood">Contact for tenders →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT + LOCATION ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Get in touch</h2>
+        <p>Questions about a product, a project, or an order — send us a message or visit the workshop.</p>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <form class="contact-form">
+        <div class="row-2">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" placeholder="+91 00000 00000">
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="reason">I'm reaching out about</label>
+          <select id="reason">
+            <option>Buying furniture</option>
+            <option>A tender / bulk contract</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us what you need..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send message</button>
+      </form>
+
+      <div class="location-card">
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps?q=Patna,Bihar&output=embed" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div class="location-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><strong>Workshop &amp; Showroom</strong><span>Patna, Bihar</span></div>
+        </div>
+        <div class="location-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          <div><strong>Call us</strong><span>Add phone number here</span></div>
+        </div>
+        <div class="location-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <div><strong>Email us</strong><span>Add email address here</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="grain-divider"></div>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="logo.png" alt="Mahadev Furniture logo">
+      <div>
+        <h3>Mahadev Furniture</h3>
+        <p>Handcrafted furniture and dependable contract work, built by people who know wood.</p>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="store.html">Store</a>
+      <a href="tenders.html">Tenders</a>
+      <a href="works.html">Our Works</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Patna, Bihar</p>
+      <p>Add phone number</p>
+      <p>Add email address</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mahadev Furniture. All rights reserved.</div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

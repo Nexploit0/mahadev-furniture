@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Store — Mahadev Furniture</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .filter-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .filter-chip {
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1.5px solid var(--line);
+    background: var(--white);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--navy-soft);
+    cursor: pointer;
+  }
+  .filter-chip.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    padding-bottom: 90px;
+  }
+  .product-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-thumb {
+    aspect-ratio: 4/3;
+    background: var(--panel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-thumb svg { width: 46%; height: 46%; stroke: var(--wood-deep); }
+  .product-body { padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .product-cat { font-size: 0.76rem; font-weight: 600; color: var(--wood-deep); letter-spacing: 0.02em; }
+  .product-body h3 { font-size: 1.08rem; }
+  .product-body p { font-size: 0.88rem; }
+  .product-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+  }
+  .product-price { font-family: var(--serif); font-weight: 600; color: var(--navy); font-size: 1.15rem; }
+  .product-cta {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--blue-deep);
+  }
+
+  @media (max-width: 900px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .product-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="Mahadev Furniture logo">
+      <span class="brand-text">Mahadev Furniture<span>CRAFTED WITH CARE</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="store.html" class="active">Store</a>
+      <a href="tenders.html">Tenders</a>
+      <a href="works.html">Our Works</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<div class="page-hero wrap">
+  <div class="kicker">STORE</div>
+  <h1>Ready-made furniture for your home</h1>
+  <p>Every piece is built in our own workshop. Prices shown are starting prices — sizes, wood type, and finish can be customised on request.</p>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="filter-row">
+      <span class="filter-chip active">All</span>
+      <span class="filter-chip">Beds</span>
+      <span class="filter-chip">Chairs</span>
+      <span class="filter-chip">Sofas</span>
+      <span class="filter-chip">Wardrobes</span>
+      <span class="filter-chip">Tables</span>
+      <span class="filter-chip">TV Units</span>
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M3 18h18"/><path d="M5 10V7a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/><path d="M5 21v-3"/><path d="M19 21v-3"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">BEDS</span>
+          <h3>Sheesham Double Bed</h3>
+          <p>Solid sheesham wood, with under-bed storage.</p>
+          <div class="product-footer">
+            <span class="product-price">₹18,999</span>
+            <span class="product-cta">Enquire →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M3 18h18"/><path d="M5 10V7a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/><path d="M5 21v-3"/><path d="M19 21v-3"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">BEDS</span>
+          <h3>Single Bed with Drawer</h3>
+          <p>Compact design, ideal for children's rooms.</p>
+          <div class="product-footer">
+            <span class="product-price">₹9,499</span>
+            <span class="product-cta">Enquire →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v5"/><path d="M4 14h16v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3Z"/><path d="M6 18v3"/><path d="M18 18v3"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">CHAIRS</span>
+          <h3>Dining Chair Set of 4</h3>
+          <p>Cushioned seat, sturdy teak wood frame.</p>
+          <div class="product-footer">
+            <span class="product-price">₹12,999</span>
+            <span class="product-cta">Enquire →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v5"/><path d="M4 14h16v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3Z"/><path d="M6 18v3"/><path d="M18 18v3"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">CHAIRS</span>
+          <h3>Wooden Office Chair</h3>
+          <p>Ergonomic back support, armrests included.</p>
+          <div class="product-footer">
+            <span class="product-price">₹6,499</span>
+            <span class="product-cta">Enquire →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18v-5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v5"/><path d="M4 15h16"/><path d="M4 18v2"/><path d="M20 18v2"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">SOFAS</span>
+          <h3>3-Seater Fabric Sofa</h3>
+          <p>Foam cushioning, removable fabric covers.</p>
+          <div class="product-footer">
+            <span class="product-price">₹24,999</span>
+            <span class="product-cta">Enquire →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18v-5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v5"/><path d="M4 15h16"/><path d="M4 18v2"/><path d="M20 18v2"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">SOFAS</span>
+          <h3>5-Seater Sofa Set (3+1+1)</h3>
+          <p>Complete living room set, wooden legs.</p>
+          <div class="product-footer">
+            <span class="product-price">₹38,999</span>
+            <span class="product-cta">Enquire →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="8" y1="8" x2="8" y2="8.01"/><line x1="16" y1="8" x2="16" y2="8.01"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">WARDROBES</span>
+          <h3>3-Door Wardrobe</h3>
+          <p>Mirror panel, mix of hanging space and shelves.</p>
+          <div class="product-footer">
+            <span class="product-price">₹21,999</span>
+            <span class="product-cta">Enquire →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">STUDY TABLES</span>
+          <h3>Study Table with Shelf</h3>
+          <p>Attached bookshelf, compact for small rooms.</p>
+          <div class="product-footer">
+            <span class="product-price">₹7,999</span>
+            <span class="product-cta">Enquire →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><line x1="3" y1="11" x2="21" y2="11"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">DINING SETS</span>
+          <h3>6-Seater Dining Set</h3>
+          <p>Solid wood table with matching cushioned chairs.</p>
+          <div class="product-footer">
+            <span class="product-price">₹29,999</span>
+            <span class="product-cta">Enquire →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="10" rx="2"/><line x1="8" y1="19" x2="16" y2="19"/><line x1="10" y1="15" x2="10" y2="19"/><line x1="14" y1="15" x2="14" y2="19"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">TV UNITS</span>
+          <h3>Wall-Mounted TV Unit</h3>
+          <p>Floating design with closed storage cabinets.</p>
+          <div class="product-footer">
+            <span class="product-price">₹11,499</span>
+            <span class="product-cta">Enquire →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="8" y1="8" x2="8" y2="8.01"/><line x1="16" y1="8" x2="16" y2="8.01"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">WARDROBES</span>
+          <h3>2-Door Wardrobe</h3>
+          <p>Compact option for smaller bedrooms.</p>
+          <div class="product-footer">
+            <span class="product-price">₹15,999</span>
+            <span class="product-cta">Enquire →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v5"/><path d="M4 14h16v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3Z"/><path d="M6 18v3"/><path d="M18 18v3"/></svg>
+        </div>
+        <div class="product-body">
+          <span class="product-cat">CHAIRS</span>
+          <h3>Rocking Chair</h3>
+          <p>Handcrafted curved wood frame, cane seating.</p>
+          <div class="product-footer">
+            <span class="product-price">₹8,999</span>
+            <span class="product-cta">Enquire →</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="grain-divider"></div>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Mahadev Furniture logo">
+      <div>
+        <h3>Mahadev Furniture</h3>
+        <p>Handcrafted furniture and dependable contract work, built by people who know wood.</p>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="store.html">Store</a>
+      <a href="tenders.html">Tenders</a>
+      <a href="works.html">Our Works</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Patna, Bihar</p>
+      <p>Add phone number</p>
+      <p>Add email address</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mahadev Furniture. All rights reserved.</div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+    });
+  });
+</script>
+
+</body>
